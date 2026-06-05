@@ -13,6 +13,7 @@ Premium restaurant landing page built with HTML, CSS and JavaScript.
 
 ## Folder Structure
 
+
 ```text
 css/
 js/
