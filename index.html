@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nihal Family Restaurant - Authentic Karnataka Cuisine in Bagalkot">
+<meta name="keywords" content="restaurant, bagalkot, biryani, karnataka cuisine, family restaurant">
+<meta name="author" content="Sangamesh Jainapur">
+<meta property="og:title" content="Nihal Family Restaurant">
+<meta property="og:description" content="Authentic Karnataka Cuisine in Bagalkot">
+<meta property="og:type" content="website">
+<title>Nihal Family Restaurant — Bagalkot, Karnataka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9963A;
+    --gold-light: #E8BE6A;
+    --gold-pale: #F5E6C8;
+    --black: #0A0704;
+    --deep: #120E08;
+    --charcoal: #1E1810;
+    --warm: #2A2016;
+    --cream: #F9F3E8;
+    --text-muted: #8A7A60;
+    --red-spice: #8B2A1A;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width .2s, height .2s, background .2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all .12s ease-out;
+    opacity: 0.6;
+  }
+  body:hover .cursor-ring { opacity: 1; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--deep); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 24px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all .4s;
+  }
+  nav.scrolled {
+    background: rgba(10,7,4,0.92);
+    backdrop-filter: blur(20px);
+    padding: 16px 60px;
+    border-bottom: 1px solid rgba(201,150,58,0.15);
+  }
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--cream); font-weight: 400; }
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color .3s;
+    font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 28px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* ── HERO ── */
+  #hero {
+    height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 60% 40%, rgba(201,150,58,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(139,42,26,0.10) 0%, transparent 50%),
+      linear-gradient(160deg, #0A0704 0%, #1A1108 50%, #0D0904 100%);
+  }
+  .hero-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  /* Decorative mandala circle */
+  .hero-circle {
+    position: absolute;
+    right: -80px; top: 50%;
+    transform: translateY(-50%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,150,58,0.12);
+    animation: spin-slow 40s linear infinite;
+  }
+  .hero-circle::before {
+    content: '';
+    position: absolute; inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,150,58,0.08);
+    animation: spin-slow 25s linear infinite reverse;
+  }
+  .hero-circle::after {
+    content: '';
+    position: absolute; inset: 100px;
+    border-radius: 50%;
+    border: 1px dashed rgba(201,150,58,0.06);
+  }
+  @keyframes spin-slow { to { transform: translateY(-50%) rotate(360deg); } }
+
+  /* Food image floating cards */
+  .hero-food-img {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(201,150,58,0.3);
+    box-shadow: 0 0 80px rgba(201,150,58,0.15), 0 0 200px rgba(139,42,26,0.1);
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero-food-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(1.2) brightness(0.85);
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(-50%) translateY(0); }
+    50% { transform: translateY(-50%) translateY(-18px); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding-left: 10%;
+    max-width: 700px;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px;
+    opacity: 0; animation: fadeUp .8s .3s forwards;
+  }
+  .hero-eyebrow .line {
+    width: 50px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-eyebrow span {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 7vw, 100px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    opacity: 0; animation: fadeUp .9s .5s forwards;
+  }
+  .hero-title .gold { color: var(--gold-light); font-style: italic; }
+  .hero-title .big { font-size: clamp(72px, 9vw, 130px); font-weight: 600; }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 40px;
+    opacity: 0; animation: fadeUp .9s .7s forwards;
+  }
+  .hero-badges {
+    display: flex; gap: 24px; margin-bottom: 48px;
+    opacity: 0; animation: fadeUp .9s .85s forwards;
+  }
+  .badge {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 4px;
+  }
+  .badge-num {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .badge-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .badge-divider { width: 1px; height: 50px; background: rgba(201,150,58,0.2); align-self: center; }
+  .hero-actions {
+    display: flex; gap: 20px; align-items: center;
+    opacity: 0; animation: fadeUp .9s 1s forwards;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 16px 40px;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    transition: all .3s;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-100%);
+    transition: transform .4s;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { background: var(--gold-light); box-shadow: 0 8px 40px rgba(201,150,58,0.3); }
+  .btn-ghost {
+    color: var(--cream);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+    transition: color .3s;
+  }
+  .btn-ghost:hover { color: var(--gold-light); }
+  .btn-ghost .arrow {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeIn 1s 1.4s forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+    animation: scrollDrop 2s 1.5s ease-in-out infinite;
+  }
+  @keyframes scrollDrop {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+  .scroll-text {
+    font-size: 9px; letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--gold);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-flex;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-inner span {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    padding: 0 40px;
+    font-weight: 600;
+  }
+  .marquee-inner .dot {
+    color: var(--red-spice);
+    padding: 0;
+    font-size: 18px;
+    line-height: 0;
+    vertical-align: middle;
+  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ── SECTION COMMON ── */
+  section { position: relative; }
+  .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-label .line { width: 40px; height: 1px; background: var(--gold); }
+  .section-label span {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+  .section-heading em { font-style: italic; color: var(--gold-light); }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 120px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-image-stack {
+    position: relative;
+    height: 550px;
+  }
+  .about-img-main {
+    position: absolute;
+    left: 0; top: 0;
+    width: 75%; height: 85%;
+    object-fit: cover;
+    filter: saturate(1.1) brightness(0.8);
+    border: 1px solid rgba(201,150,58,0.2);
+  }
+  .about-img-accent {
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 55%; height: 50%;
+    object-fit: cover;
+    filter: saturate(1.2) brightness(0.75);
+    border: 2px solid var(--charcoal);
+    box-shadow: 0 0 0 8px var(--charcoal);
+  }
+  .about-badge-float {
+    position: absolute;
+    left: 48%; top: 40%;
+    transform: translate(-50%, -50%);
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 2px;
+    z-index: 3;
+    box-shadow: 0 20px 60px rgba(201,150,58,0.4);
+  }
+  .about-badge-float .yr {
+    font-family: 'Cinzel', serif;
+    font-size: 24px; font-weight: 700;
+    color: var(--black); line-height: 1;
+  }
+  .about-badge-float .yr-label {
+    font-size: 8px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    opacity: 0.7;
+  }
+  .about-text { padding-right: 20px; }
+  .about-text p {
+    color: var(--text-muted);
+    line-height: 1.9;
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .about-features {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-top: 40px;
+  }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .feature-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border: 1px solid rgba(201,150,58,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: var(--gold);
+  }
+  .feature-item h4 {
+    font-size: 13px; font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--cream);
+  }
+  .feature-item p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ── MENU ── */
+  #menu {
+    padding: 120px 10%;
+    background: var(--deep);
+  }
+  .menu-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .menu-tabs {
+    display: flex; gap: 0;
+    border: 1px solid rgba(201,150,58,0.2);
+  }
+  .tab {
+    padding: 10px 24px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .3s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab.active, .tab:hover {
+    background: var(--gold);
+    color: var(--black);
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,150,58,0.1);
+  }
+  .menu-cat-panel { display: none; grid-column: 1 / -1; }
+  .menu-cat-panel.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+  }
+  .menu-item {
+    background: var(--charcoal);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background .3s;
+    border-bottom: 1px solid rgba(201,150,58,0.06);
+  }
+  .menu-item:hover { background: var(--warm); }
+  .menu-item::before {
+    content: '';
+    position: absolute; left: 0; top: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .3s;
+  }
+  .menu-item:hover::before { transform: scaleY(1); }
+  .menu-item-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .menu-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400;
+    color: var(--cream);
+    flex: 1;
+    padding-right: 10px;
+  }
+  .menu-item-price {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .menu-item-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .menu-item-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 10px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(201,150,58,0.3);
+    color: var(--gold);
+  }
+  .veg-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .veg { background: #4CAF50; }
+  .non-veg { background: #E53935; }
+
+  /* ── GALLERY ── */
+  #gallery {
+    padding: 120px 0 0;
+    overflow: hidden;
+  }
+  .gallery-header {
+    padding: 0 10%;
+    margin-bottom: 60px;
+  }
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+  }
+  .gallery-item {
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    position: relative;
+  }
+  .gallery-item:nth-child(2), .gallery-item:nth-child(4) {
+    aspect-ratio: 3/5;
+    margin-top: -40px;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(0.8) brightness(0.75);
+    transition: all .5s;
+    transform: scale(1.05);
+  }
+  .gallery-item:hover img {
+    filter: saturate(1.2) brightness(0.9);
+    transform: scale(1);
+  }
+  .gallery-item .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,7,4,0.7) 0%, transparent 60%);
+    opacity: 0; transition: opacity .4s;
+    display: flex; align-items: flex-end; padding: 20px;
+  }
+  .gallery-item:hover .overlay { opacity: 1; }
+  .overlay span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* ── SPECIALTIES ── */
+  #specialties {
+    padding: 120px 10%;
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    background: rgba(201,150,58,0.08);
+  }
+  .spec-card {
+    background: var(--charcoal);
+    padding: 50px 32px;
+    text-align: center;
+    transition: background .3s, transform .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .spec-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform .4s;
+  }
+  .spec-card:hover { background: var(--warm); transform: translateY(-4px); }
+  .spec-card:hover::after { transform: scaleX(1); }
+  .spec-emoji { font-size: 42px; margin-bottom: 20px; display: block; }
+  .spec-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--cream);
+  }
+  .spec-desc {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    padding: 120px 10%;
+    background: var(--deep);
+    overflow: hidden;
+  }
+  .testimonial-track {
+    display: flex; gap: 30px;
+    margin-top: 60px;
+    animation: slide 30s linear infinite;
+    width: max-content;
+  }
+  .testimonial-track:hover { animation-play-state: paused; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  .testimonial-card {
+    width: 380px; flex-shrink: 0;
+    background: var(--charcoal);
+    border: 1px solid rgba(201,150,58,0.12);
+    padding: 40px;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute; top: 20px; right: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: rgba(201,150,58,0.15);
+    line-height: 1;
+  }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px; font-style: italic;
+    color: var(--cream); line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .reviewer {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .reviewer-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--warm);
+    border: 1px solid rgba(201,150,58,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+  }
+  .reviewer-name { font-size: 13px; font-weight: 500; color: var(--cream); }
+  .reviewer-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
+
+  /* ── INFO STRIP ── */
+  #info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .info-block {
+    background: var(--charcoal);
+    padding: 70px 60px;
+    border-right: 1px solid rgba(201,150,58,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .info-block:last-child { border-right: none; }
+  .info-block::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+  .info-icon { font-size: 28px; margin-bottom: 20px; display: block; }
+  .info-block h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .info-block p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .info-block strong { color: var(--cream); font-weight: 400; }
+  .info-block a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+  .info-block a:hover { text-decoration: underline; }
+
+  /* ── RESERVATION ── */
+  #reservation {
+    padding: 120px 10%;
+    background: var(--deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .reservation-text .section-heading { margin-bottom: 24px; }
+  .reservation-text p {
+    color: var(--text-muted);
+    font-size: 15px; line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 16px;
+    text-decoration: none;
+    color: var(--cream);
+    font-size: 15px;
+    transition: color .3s;
+  }
+  .contact-link:hover { color: var(--gold-light); }
+  .contact-link .icon {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(201,150,58,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: all .3s;
+  }
+  .contact-link:hover .icon {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .reservation-form {
+    background: var(--charcoal);
+    padding: 50px;
+    border: 1px solid rgba(201,150,58,0.12);
+  }
+  .reservation-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300;
+    margin-bottom: 32px;
+    color: var(--cream);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    background: var(--warm);
+    border: 1px solid rgba(201,150,58,0.15);
+    color: var(--cream);
+    padding: 14px 16px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color .3s;
+    -webkit-appearance: none;
+  }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group textarea { resize: none; height: 80px; }
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    border: none; padding: 16px;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    transition: all .3s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--gold-light); box-shadow: 0 8px 30px rgba(201,150,58,0.25); }
+
+  /* ── MAP ── */
+  #map-section {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-iframe-wrap {
+    width: 100%; height: 100%;
+    filter: saturate(0.3) contrast(1.1) brightness(0.6);
+    transition: filter .4s;
+  }
+  .map-iframe-wrap:hover { filter: saturate(0.6) contrast(1.1) brightness(0.8); }
+  .map-iframe-wrap iframe { width: 100%; height: 100%; border: none; }
+  .map-overlay {
+    position: absolute; left: 10%; top: 50%;
+    transform: translateY(-50%);
+    background: var(--charcoal);
+    border: 1px solid rgba(201,150,58,0.3);
+    padding: 32px 40px;
+    z-index: 2;
+    min-width: 280px;
+  }
+  .map-overlay h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px; letter-spacing: 2px;
+    color: var(--gold); margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .map-overlay p { color: var(--text-muted); font-size: 14px; line-height: 1.8; }
+  .map-overlay a {
+    display: inline-block; margin-top: 16px;
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,150,58,0.3);
+    padding-bottom: 2px;
+    transition: border-color .3s;
+  }
+  .map-overlay a:hover { border-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 80px 10% 40px;
+    border-top: 1px solid rgba(201,150,58,0.1);
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 60px;
+  }
+  .footer-brand .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 24px; color: var(--gold-light);
+    margin-bottom: 16px; display: block;
+  }
+  .footer-brand p {
+    color: var(--text-muted);
+    font-size: 13px; line-height: 1.8;
+    max-width: 280px;
+  }
+  .footer-social {
+    display: flex; gap: 12px; margin-top: 24px;
+  }
+  .social-link {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(201,150,58,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); text-decoration: none;
+    font-size: 15px;
+    transition: all .3s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-col h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 11px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13px; transition: color .3s;
+  }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom {
+    border-top: 1px solid rgba(201,150,58,0.08);
+    padding-top: 30px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom p { font-size: 12px; color: var(--text-muted); }
+  .footer-bottom span { color: var(--gold); }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    #hero { padding: 120px 24px 60px; height: auto; min-height: 100vh; }
+    .hero-food-img { display: none; }
+    .hero-circle { display: none; }
+    .hero-content { padding: 0; }
+    #about { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+    .about-image-stack { height: 300px; }
+    #menu { padding: 80px 24px; }
+    .menu-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .menu-cat-panel.active { grid-template-columns: 1fr; }
+    #gallery .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(2), .gallery-item:nth-child(4) { margin-top: 0; }
+    #specialties { padding: 80px 24px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+    #testimonials { padding: 80px 24px; }
+    #info { grid-template-columns: 1fr; }
+    .info-block { border-right: none; border-bottom: 1px solid rgba(201,150,58,0.1); padding: 50px 24px; }
+    #reservation { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+    .reservation-form { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .map-overlay { left: 5%; right: 5%; min-width: unset; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">NIHAL <span>FAMILY</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#info">Visit Us</a></li>
+  </ul>
+  <a href="#reservation" class="nav-cta">Reserve a Table</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-circle"></div>
+
+  <div class="hero-food-img">
+    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=900&q=80" alt="Biryani">
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="line"></div>
+      <span>Established in Bagalkot, Karnataka</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="gold">Nihal</span><br>
+      <span class="big">Family</span><br>
+      Restaurant
+    </h1>
+    <p class="hero-subtitle">Where every meal is a celebration of heritage & flavour</p>
+    <div class="hero-badges">
+      <div class="badge">
+        <span class="badge-num">4.5★</span>
+        <span class="badge-label">Google Rating</span>
+      </div>
+      <div class="badge-divider"></div>
+      <div class="badge">
+        <span class="badge-num">500+</span>
+        <span class="badge-label">Happy Families</span>
+      </div>
+      <div class="badge-divider"></div>
+      <div class="badge">
+        <span class="badge-num">60+</span>
+        <span class="badge-label">Menu Items</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">Explore Menu</a>
+      <a href="#reservation" class="btn-ghost">
+        Book a Table
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Authentic Karnataka Cuisine</span><span class="dot">●</span>
+    <span>Veg & Non-Veg Specialties</span><span class="dot">●</span>
+    <span>Fresh Daily Ingredients</span><span class="dot">●</span>
+    <span>Family Dining</span><span class="dot">●</span>
+    <span>Bagalkot's Finest Restaurant</span><span class="dot">●</span>
+    <span>Biryani · Tandoor · Curries</span><span class="dot">●</span>
+    <span>Authentic Karnataka Cuisine</span><span class="dot">●</span>
+    <span>Veg & Non-Veg Specialties</span><span class="dot">●</span>
+    <span>Fresh Daily Ingredients</span><span class="dot">●</span>
+    <span>Family Dining</span><span class="dot">●</span>
+    <span>Bagalkot's Finest Restaurant</span><span class="dot">●</span>
+    <span>Biryani · Tandoor · Curries</span><span class="dot">●</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image-stack reveal">
+    <img class="about-img-main" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant interior">
+    <img class="about-img-accent" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=80" alt="Indian curry">
+    <div class="about-badge-float">
+      <span class="yr">★ 4.5</span>
+      <span class="yr-label">Rated</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <div class="section-label">
+      <div class="line"></div>
+      <span>Our Story</span>
+    </div>
+    <h2 class="section-heading">A Legacy of<br><em>Taste & Warmth</em></h2>
+    <p style="margin-top:24px">Nestled in the heart of Bagalkot district, Karnataka, Nihal Family Restaurant was born from a passion for authentic, home-style Indian cuisine. We believe that food is more than sustenance — it is memory, culture, and love served on a plate.</p>
+    <p>From aromatic biryanis cooked in dum to sizzling tandoori preparations, every dish at Nihal's is crafted with fresh local ingredients and generations-old recipes that carry the soul of Karnataka's rich culinary tradition.</p>
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-icon">🍛</div>
+        <div>
+          <h4>Authentic Recipes</h4>
+          <p>Time-tested family recipes from Karnataka's culinary tradition</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌿</div>
+        <div>
+          <h4>Fresh Ingredients</h4>
+          <p>Locally sourced produce, cooked fresh daily</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👨‍👩‍👧</div>
+        <div>
+          <h4>Family Atmosphere</h4>
+          <p>A warm, welcoming space for every occasion</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🥗</div>
+        <div>
+          <h4>Veg & Non-Veg</h4>
+          <p>Extensive menu for every palate and preference</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section id="specialties">
+  <div class="reveal">
+    <div class="section-label">
+      <div class="line"></div>
+      <span>What We're Known For</span>
+    </div>
+    <h2 class="section-heading">Our <em>Signature</em><br>Specialties</h2>
+  </div>
+  <div class="spec-grid reveal">
+    <div class="spec-card">
+      <span class="spec-emoji">🍚</span>
+      <h3 class="spec-name">Dum Biryani</h3>
+      <p class="spec-desc">Slow-cooked basmati rice layered with spiced meat or vegetables, sealed and dum-cooked to perfection</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-emoji">🍗</span>
+      <h3 class="spec-name">Tandoori Specials</h3>
+      <p class="spec-desc">Marinated meats and paneer cooked in a traditional clay tandoor — charred, smoky, unforgettable</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-emoji">🍲</span>
+      <h3 class="spec-name">North Karnataka Curries</h3>
+      <p class="spec-desc">Bold, rich gravies inspired by the Bagalkot region — Jolada Rotti, Enne Badnekayi, and more</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-emoji">🧁</span>
+      <h3 class="spec-name">Desserts & Sweets</h3>
+      <p class="spec-desc">Warm gulab jamun, creamy phirni, and seasonal Indian sweets to end your meal beautifully</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header reveal">
+    <div>
+      <div class="section-label">
+        <div class="line"></div>
+        <span>What We Serve</span>
+      </div>
+      <h2 class="section-heading">Our <em>Menu</em></h2>
+    </div>
+    <div class="menu-tabs">
+      <button class="tab active" onclick="switchTab('rice')">Rice & Biryani</button>
+      <button class="tab" onclick="switchTab('curry')">Curries</button>
+      <button class="tab" onclick="switchTab('tandoor')">Tandoor</button>
+      <button class="tab" onclick="switchTab('beverages')">Beverages</button>
+    </div>
+  </div>
+
+  <div id="tab-rice" class="menu-cat-panel active">
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Chicken Biryani</span>
+        <span class="menu-item-price">₹180</span>
+      </div>
+      <p class="menu-item-desc">Tender chicken pieces slow-cooked with aged basmati rice, whole spices, and caramelised onions. Served with raita.</p>
+      <span class="menu-item-tag">Chef's Special</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Veg Dum Biryani</span>
+        <span class="menu-item-price">₹130</span>
+      </div>
+      <p class="menu-item-desc">Seasonal vegetables, paneer, and fragrant basmati sealed with dough and slow-cooked in dum style.</p>
+      <span class="menu-item-tag">Vegetarian</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Mutton Biryani</span>
+        <span class="menu-item-price">₹220</span>
+      </div>
+      <p class="menu-item-desc">Succulent mutton slow-marinated overnight and cooked with saffron, rose water, and hand-pounded masalas.</p>
+      <span class="menu-item-tag">Weekend Special</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Jeera Rice</span>
+        <span class="menu-item-price">₹80</span>
+      </div>
+      <p class="menu-item-desc">Perfectly cooked basmati rice tempered with cumin, ghee, and whole spices.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Egg Biryani</span>
+        <span class="menu-item-price">₹140</span>
+      </div>
+      <p class="menu-item-desc">Masala-fried eggs layered with aromatic basmati rice — a comfort classic.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Prawn Biryani</span>
+        <span class="menu-item-price">₹240</span>
+      </div>
+      <p class="menu-item-desc">Coastal Karnataka-style tiger prawns cooked with coconut masala and fragrant rice.</p>
+      <span class="menu-item-tag">Seasonal</span>
+    </div>
+  </div>
+
+  <div id="tab-curry" class="menu-cat-panel">
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Chicken Masala</span>
+        <span class="menu-item-price">₹160</span>
+      </div>
+      <p class="menu-item-desc">Rich tomato-onion gravy with tender chicken, slow-simmered with house spice blend.</p>
+      <span class="menu-item-tag">Best Seller</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Enne Badnekayi</span>
+        <span class="menu-item-price">₹110</span>
+      </div>
+      <p class="menu-item-desc">Traditional Bagalkot-style oil brinjal curry — stuffed with groundnut-sesame masala. A North Karnataka treasure.</p>
+      <span class="menu-item-tag">Local Special</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Dal Tadka</span>
+        <span class="menu-item-price">₹80</span>
+      </div>
+      <p class="menu-item-desc">Yellow lentils tempered with ghee, cumin, garlic, and dried red chillies.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Mutton Rassa</span>
+        <span class="menu-item-price">₹200</span>
+      </div>
+      <p class="menu-item-desc">Spicy, soul-warming North Karnataka mutton curry with hand-ground masalas and bone-in pieces.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Paneer Butter Masala</span>
+        <span class="menu-item-price">₹130</span>
+      </div>
+      <p class="menu-item-desc">Soft cottage cheese cubes in velvety tomato-cream gravy with mild spices.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Fish Curry</span>
+        <span class="menu-item-price">₹170</span>
+      </div>
+      <p class="menu-item-desc">Fresh river fish cooked in tamarind-based Karnataka-style red curry. Pairs beautifully with jolada rotti.</p>
+      <span class="menu-item-tag">Local Favourite</span>
+    </div>
+  </div>
+
+  <div id="tab-tandoor" class="menu-cat-panel">
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Chicken Tandoori</span>
+        <span class="menu-item-price">₹180</span>
+      </div>
+      <p class="menu-item-desc">Whole leg pieces marinated in yoghurt and spices, cooked in a clay tandoor until charred and smoky.</p>
+      <span class="menu-item-tag">Tandoor Special</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Seekh Kebab</span>
+        <span class="menu-item-price">₹160</span>
+      </div>
+      <p class="menu-item-desc">Minced lamb mixed with herbs, spices, and onion — skewered and grilled over live coals.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Paneer Tikka</span>
+        <span class="menu-item-price">₹140</span>
+      </div>
+      <p class="menu-item-desc">Chunks of fresh paneer marinated in spiced yoghurt, grilled with peppers and onion. Served with mint chutney.</p>
+      <span class="menu-item-tag">Vegetarian</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Tandoori Roti</span>
+        <span class="menu-item-price">₹20</span>
+      </div>
+      <p class="menu-item-desc">Whole wheat bread cooked in the tandoor — crisp on the outside, soft inside.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot non-veg"></span>Chicken Malai Kebab</span>
+        <span class="menu-item-price">₹170</span>
+      </div>
+      <p class="menu-item-desc">Tender chicken marinated in cream, cheese, and white pepper — melt-in-mouth softness.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Jolada Rotti</span>
+        <span class="menu-item-price">₹25</span>
+      </div>
+      <p class="menu-item-desc">Traditional North Karnataka jowar flatbread — the authentic accompaniment to all our curries.</p>
+      <span class="menu-item-tag">Karnataka Classic</span>
+    </div>
+  </div>
+
+  <div id="tab-beverages" class="menu-cat-panel">
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Fresh Lime Soda</span>
+        <span class="menu-item-price">₹50</span>
+      </div>
+      <p class="menu-item-desc">Chilled fresh lime with soda, sugar syrup, and black salt. Sweet or salted as you like.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Masala Chaas</span>
+        <span class="menu-item-price">₹45</span>
+      </div>
+      <p class="menu-item-desc">Chilled spiced buttermilk with roasted cumin, mint, and ginger — perfect with biryani.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Mango Lassi</span>
+        <span class="menu-item-price">₹70</span>
+      </div>
+      <p class="menu-item-desc">Thick, creamy yoghurt blended with Alphonso mango pulp and a hint of cardamom.</p>
+      <span class="menu-item-tag">Summer Favourite</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Filter Coffee</span>
+        <span class="menu-item-price">₹40</span>
+      </div>
+      <p class="menu-item-desc">Authentic South Indian filter coffee — strong decoction with frothy milk. A must-try.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Fresh Fruit Juice</span>
+        <span class="menu-item-price">₹60</span>
+      </div>
+      <p class="menu-item-desc">Seasonal fresh-pressed juices — watermelon, pineapple, pomegranate, or mixed fruit.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <span class="menu-item-name"><span class="veg-dot veg"></span>Rose Sharbat</span>
+        <span class="menu-item-price">₹40</span>
+      </div>
+      <p class="menu-item-desc">Chilled rose syrup with milk and basil seeds — a fragrant North Karnataka classic.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">
+      <div class="line"></div>
+      <span>Our Space</span>
+    </div>
+    <h2 class="section-heading">A Feast for<br>the <em>Eyes & Soul</em></h2>
+  </div>
+  <div class="gallery-strip">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80" alt="Biryani">
+      <div class="overlay"><span>Dum Biryani</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Interior">
+      <div class="overlay"><span>Our Dining Hall</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&q=80" alt="Kebab">
+      <div class="overlay"><span>Tandoor Kebabs</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Thali">
+      <div class="overlay"><span>Karnataka Thali</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Restaurant">
+      <div class="overlay"><span>Family Ambiance</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="section-label">
+      <div class="line"></div>
+      <span>Guest Reviews</span>
+    </div>
+    <h2 class="section-heading">What Families<br><em>Say About Us</em></h2>
+  </div>
+  <div class="testimonial-track">
+    <!-- Original set -->
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The biryani here is something else — perfectly spiced, aromatic, and generous in portion. Best in all of Bagalkot. We've been coming every Sunday for years!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">A</div>
+        <div>
+          <div class="reviewer-name">Arjun Patil</div>
+          <div class="reviewer-sub">Regular Guest · Bagalkot</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The Enne Badnekayi curry with jolada rotti is an absolute masterpiece. It tastes exactly like what my grandmother used to make. Pure North Karnataka comfort food."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">S</div>
+        <div>
+          <div class="reviewer-name">Savitha Desai</div>
+          <div class="reviewer-sub">Food Lover · Vijayapura</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★☆</div>
+      <p class="testimonial-text">"Took my whole family for my parents' anniversary dinner. The service was warm, the food outstanding, and the ambiance felt genuinely special. Highly recommend for family gatherings."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">R</div>
+        <div>
+          <div class="reviewer-name">Rahul Katti</div>
+          <div class="reviewer-sub">Anniversary Celebration</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Visiting from Bengaluru and was recommended Nihal's by a local friend. The mutton biryani was extraordinary — worth the drive. This place deserves national recognition."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">P</div>
+        <div>
+          <div class="reviewer-name">Priya Nagaraj</div>
+          <div class="reviewer-sub">Visitor · Bengaluru</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The filter coffee here is a revelation — strong, creamy, perfectly brewed. It's our tradition to end every meal at Nihal's with their filter coffee and gulab jamun."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">M</div>
+        <div>
+          <div class="reviewer-name">Mohammed Aijaz</div>
+          <div class="reviewer-sub">Regular Guest · Bagalkot</div>
+        </div>
+      </div>
+    </div>
+    <!-- Duplicate for infinite scroll -->
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The biryani here is something else — perfectly spiced, aromatic, and generous in portion. Best in all of Bagalkot. We've been coming every Sunday for years!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">A</div>
+        <div>
+          <div class="reviewer-name">Arjun Patil</div>
+          <div class="reviewer-sub">Regular Guest · Bagalkot</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The Enne Badnekayi curry with jolada rotti is an absolute masterpiece. It tastes exactly like what my grandmother used to make. Pure North Karnataka comfort food."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">S</div>
+        <div>
+          <div class="reviewer-name">Savitha Desai</div>
+          <div class="reviewer-sub">Food Lover · Vijayapura</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★☆</div>
+      <p class="testimonial-text">"Took my whole family for my parents' anniversary dinner. The service was warm, the food outstanding, and the ambiance felt genuinely special. Highly recommend for family gatherings."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">R</div>
+        <div>
+          <div class="reviewer-name">Rahul Katti</div>
+          <div class="reviewer-sub">Anniversary Celebration</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Visiting from Bengaluru and was recommended Nihal's by a local friend. The mutton biryani was extraordinary — worth the drive. This place deserves national recognition."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">P</div>
+        <div>
+          <div class="reviewer-name">Priya Nagaraj</div>
+          <div class="reviewer-sub">Visitor · Bengaluru</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The filter coffee here is a revelation — strong, creamy, perfectly brewed. It's our tradition to end every meal at Nihal's with their filter coffee and gulab jamun."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">M</div>
+        <div>
+          <div class="reviewer-name">Mohammed Aijaz</div>
+          <div class="reviewer-sub">Regular Guest · Bagalkot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="info-block reveal">
+    <span class="info-icon">📍</span>
+    <h3>Find Us</h3>
+    <p>
+      <strong>Nihal Family Restaurant</strong><br>
+      Near Bus Stand, Bagalkot<br>
+      Bagalkot District,<br>
+      Karnataka – 587101
+    </p>
+    <a href="https://maps.app.goo.gl/tQoZD4oMF1M4CwAs6" target="_blank">Get Directions →</a>
+  </div>
+  <div class="info-block reveal">
+    <span class="info-icon">🕐</span>
+    <h3>Opening Hours</h3>
+    <p>
+      <strong>Monday – Friday</strong><br>
+      11:00 AM – 3:30 PM<br>
+      7:00 PM – 11:00 PM<br><br>
+      <strong>Saturday & Sunday</strong><br>
+      10:00 AM – 11:00 PM
+    </p>
+  </div>
+  <div class="info-block reveal">
+    <span class="info-icon">📞</span>
+    <h3>Contact Us</h3>
+    <p>
+      <a href="tel:+919845068960">+91 98450 68960</a><br><br>
+      For reservations &amp; bulk orders,<br>
+      call us or walk in.<br><br>
+      <strong>Dine-In · Takeaway<br>Home Delivery Available</strong>
+    </p>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section id="reservation">
+  <div class="reservation-text reveal">
+    <div class="section-label">
+      <div class="line"></div>
+      <span>Book Your Table</span>
+    </div>
+    <h2 class="section-heading">Reserve Your<br><em>Special Evening</em></h2>
+    <p>Whether it's a family celebration, a casual lunch, or a special occasion — we'd love to host you. Fill in the form or call us directly to secure your table.</p>
+    <div class="contact-links">
+      <a href="tel:+919845068960" class="contact-link">
+        <div class="icon">📞</div>
+        +91 98450 68960
+      </a>
+      <a href="https://maps.app.goo.gl/tQoZD4oMF1M4CwAs6" class="contact-link" target="_blank">
+        <div class="icon">📍</div>
+        Near Bus Stand, Bagalkot, Karnataka
+      </a>
+      <a href="mailto:nihalrestaurant@gmail.com" class="contact-link">
+        <div class="icon">✉️</div>
+        nihalrestaurant@gmail.com
+      </a>
+    </div>
+  </div>
+  <div class="reservation-form reveal">
+    <h3>Make a Reservation</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date">
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input type="time">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Number of Guests</label>
+        <select>
+          <option>1 – 2 Guests</option>
+          <option>3 – 4 Guests</option>
+          <option>5 – 6 Guests</option>
+          <option>7 – 10 Guests</option>
+          <option>Large Group (10+)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Occasion</label>
+        <select>
+          <option>Casual Dining</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Business Lunch</option>
+          <option>Family Gathering</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Special Requests</label>
+      <textarea placeholder="Any dietary requirements or special requests..."></textarea>
+    </div>
+    <button class="form-submit" onclick="handleBooking(event)">Confirm Reservation</button>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map-section">
+  <div class="map-iframe-wrap">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.6168!2d75.6105234!3d16.201055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc77b007ff31529%3A0x51958568b68b24c8!2sNihal%20family%20Restaurant!5e0!3m2!1sen!2sin!4v1700000000000"
+      allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+  <div class="map-overlay">
+    <h3>📍 We Are Here</h3>
+    <p>Near Bus Stand, Bagalkot<br>Karnataka – 587101</p>
+    <a href="https://maps.app.goo.gl/tQoZD4oMF1M4CwAs6" target="_blank">Open in Google Maps →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo">NIHAL FAMILY RESTAURANT</span>
+      <p>Serving the heartiest flavours of Karnataka since our doors opened. Come for the food, stay for the warmth — Nihal's is more than a restaurant, it's a second home.</p>
+      <div class="footer-social">
+        <a class="social-link" href="#" title="Facebook">f</a>
+        <a class="social-link" href="#" title="Instagram">📷</a>
+        <a class="social-link" href="https://maps.app.goo.gl/tQoZD4oMF1M4CwAs6" target="_blank" title="Google Maps">📍</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#specialties">Specialties</a></li>
+        <li><a href="#reservation">Reservations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Menu Highlights</h4>
+      <ul>
+        <li><a href="#menu">Chicken Biryani</a></li>
+        <li><a href="#menu">Mutton Biryani</a></li>
+        <li><a href="#menu">Enne Badnekayi</a></li>
+        <li><a href="#menu">Tandoori Specials</a></li>
+        <li><a href="#menu">Fish Curry</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919845068960">+91 98450 68960</a></li>
+        <li><a href="#">Bagalkot, Karnataka</a></li>
+        <li><a href="#">Mon–Fri: 11am – 11pm</a></li>
+        <li><a href="#">Sat–Sun: 10am – 11pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Nihal Family Restaurant, Bagalkot. All rights reserved.</p>
+    <p>Crafted with <span>♥</span> for the love of good food</p>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      cursorRing.style.left = e.clientX + 'px';
+      cursorRing.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.querySelectorAll('a, button, .menu-item, .spec-card, .gallery-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px'; cursor.style.height = '20px';
+      cursorRing.style.width = '60px'; cursorRing.style.height = '60px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '12px'; cursor.style.height = '12px';
+      cursorRing.style.width = '40px'; cursorRing.style.height = '40px';
+    });
+  });
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Menu tabs
+  function switchTab(tab) {
+    document.querySelectorAll('.menu-cat-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Booking handler
+  function handleBooking(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = '✓ Reservation Received!';
+    btn.style.background = '#4CAF50';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Confirm Reservation';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  }
+</script>
+</body>
+</html>
